@@ -1,0 +1,721 @@
+/* ============================================================
+   DICTIONARY STYLESHEET — Simplified & Enhanced
+   ============================================================ */
+
+/* ── Custom Properties ─────────────────────────────────────── */
+:root {
+  --font-serif:      ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans:       system-ui, -apple-system, sans-serif;
+
+  --color-text:      CanvasText;
+  --color-muted:     -apple-system-secondary-label;
+  --color-faint:     -apple-system-tertiary-label;
+  --color-link:      -webkit-link;
+  --color-surface:   -apple-system-text-background;
+
+  --hw-size:         1.58em;
+  --hw-size-panel:   1.2em;
+  --pr-size:         1.2em;
+
+  --indent:          1em;
+  --border:          1px solid var(--color-faint);
+  --radius:          1em;
+
+  --gap-xs:  0.1em;
+  --gap-sm:  0.3em;
+  --gap-md:  0.5em;
+  --gap-lg:  0.8em;
+  --gap-xl:  1.3em;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+body {
+  font-family:  var(--font-serif);
+  font-size:    12pt;
+  color:        var(--color-text);
+  line-height:  1.6;
+  margin:       1em;
+  padding:      0.5em 1em 1.5em;
+}
+html.apple_client-panel body {
+  margin:  0;
+  padding: 0 1em;
+}
+
+@media (prefers-color-scheme: dark) {
+  img     { filter: invert(100%); }
+  img.gi  { filter: none; }
+}
+
+a { color: var(--color-link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+html.apple_client-panel a,
+html.apple_client-panel a:hover { color: var(--color-text); text-decoration: none; }
+
+table {
+  table-layout: fixed;
+  width:        90%;
+  margin:       1em 0 0 14px;
+  border:       var(--border);
+  font-weight:  normal;
+}
+caption {
+  font-size:      80%;
+  margin-bottom:  0.5em;
+  text-align:     left;
+  text-transform: uppercase;
+}
+
+/* ── Entry ──────────────────────────────────────────────────── */
+.entry {
+  display:       block;
+  font-size:     90%;
+  line-height:   140%;
+  margin-bottom: 1em;
+}
+.entry + .entry { margin-top: 4em; }
+
+/* ── Headword Block ─────────────────────────────────────────── */
+.hg .hw, .hg .vg, .hwg .hw, .ehw, .vhw,
+.hwg .hvg, .hg .gp.t_hw {
+  font-size:       var(--hw-size);
+  font-weight:     500;
+  line-height:     150%;
+  -webkit-hyphens: auto;
+}
+html.apple_client-panel .hg .hw,
+html.apple_client-panel .hg .vg,
+html.apple_client-panel .hwg .hw,
+html.apple_client-panel .ehw,
+html.apple_client-panel .vhw,
+html.apple_client-panel .hwg .hvg,
+html.apple_client-panel .hg .gp.t_hw,
+html.apple_client-panel .hwg .frmg .frm,
+html.apple_client-panel .hwg .frmg .gr,
+html.apple_client-panel .hwg .frmg .gp.tg_frmg {
+  font-size:   var(--hw-size-panel);
+  line-height: 130%;
+}
+
+.hvg > .hm              { font-size: 59%; }
+html.apple_client-panel .hvg > .hm { font-size: 80%; }
+.hg > .hgSub1 .vg       { font-size: 100%; }
+.hg .vg.x_weak,
+.hg .vg.x_weak .v       { font-size: 100%; color: var(--color-muted); }
+.gramb .hvg .hv          { font-weight: 600; }
+
+.x_xh0 .vg              { font-weight: 300; color: var(--color-muted); }
+.x_xh0 .vg .v           { font-weight: 500; color: var(--color-text); }
+.x_xh0 .vg .t_label     { font-weight: normal; }
+
+/* Homonym superscripts */
+.gp.ty_hom, .xr .hm     { vertical-align: super; font-size: 70%; }
+.hg > .gp.ty_hom         { font-size: 120%; vertical-align: 50%; }
+html.apple_client-panel .hg > .gp.ty_hom { font-size: 100%; vertical-align: super; }
+
+/* Forms inside headword */
+.hwg .frmg .frm                    { font-weight: normal; font-size: 170%; }
+.hwg .hvg .frmg .frm               { font-size: 100%; }
+.hwg .frmg .gr,
+.hwg .frmg .gp.tg_frmg             { font-size: 150%; }
+.hwg .hvg .frmg .gr,
+.hwg .hvg .frmg .gp.tg_frmg       { font-size: 100%; }
+.hwg .frmg .gp.tg_frmg,
+.hwg .infg .gp.tg_infg,
+.hwg .infg .gp.tg_inf,
+.hw .gp.tg_hw,
+.hvg .hv .gp.tg_hv                 { color: var(--color-muted); }
+
+.hg .fg                            { font-size: 150%; }
+html.apple_client-panel .hg .fg    { font-size: 100%; }
+.hg .fg .f                         { font-weight: normal; }
+.hg .fg .sy                        { font-style: italic; }
+.fhw                               { font-weight: 500; font-style: italic; }
+
+/* hgSub levels */
+.hg > .hgSub1              { font-size: 110%; margin-left: 0.1em; }
+html.apple_client-panel .hg > .hgSub1,
+html.apple_client-panel .hwg > .hgSub1 { display: inline; font-size: 100%; margin-left: var(--indent); }
+.hg > .hgSub1 .posg,
+.hwg > .hgSub1 .ps         { font-size: 110%; }
+.hg > .hgSub1 .pr,
+.hg > .hgSub1 .prx         { font-size: 100%; }
+.hgSub1 > .etym,
+.hgSub1 > .grnote           { display: block; }
+.hgSub1 > .etym.x_nblk      { display: inline; }
+.hg > .hgSub2,
+.hg > .hgSub2 .fg,
+.hg > .hgSub2 .infg,
+.hg > .hgSub2 .vg           { display: block; font-size: 100%; margin-top: 0.3em; }
+
+/* ── Inflections ────────────────────────────────────────────── */
+.inf                                  { font-weight: 600; }
+.infg .sy + .inf                      { margin-left: 0.1em; }
+.hw + .infg                           { margin-left: 0.2em; }
+.hg .hw + .infg,
+.hg .hw + .gp.ty_hom + .infg         { font-size: 170%; font-weight: normal; }
+.hg .hw + .infg .inf,
+.hg .hw + .gp.ty_hom + .infg .inf    { font-weight: normal; }
+.hvg .infg                            { font-size: 58.8%; }
+html.apple_client-panel .hg .hw + .infg,
+html.apple_client-panel .hg .hw + .gp.ty_hom + .infg { font-size: 130%; }
+html.apple_client-panel .hvg .infg    { font-size: 76.9%; }
+.hwg .infg                            { font-size: 120%; }
+html.apple_client-panel .hwg .infg    { font-size: 100%; }
+
+/* ── Pronunciation ──────────────────────────────────────────── */
+.pr, .prx {
+  font-weight: normal;
+  color:       var(--color-muted);
+}
+.hg .pr, .hg .prx, .hwg .pr, .hwg .prx {
+  display:      inline-block;
+  font-size:    var(--pr-size);
+  line-height:  130%;
+  margin-left:  0.4em;
+  margin-right: 0.4em;
+}
+.prx + .prx                     { margin-left: 0; }
+.hg .hw .pr, .hg .v .pr        { font-size: 80%; margin-left: 0; margin-right: 0; }
+.hwg .hvg .pr, .hwg .hvg .prx,
+.hg .vg .pr, .hg .vg .prx      { font-size: 70%; }
+html.apple_client-panel .hwg .hvg .pr,
+html.apple_client-panel .hg .vg .pr { font-size: 100%; }
+
+.x_xh0 .gp.tg_pr, .x_xh0 .gp.tg_prx,
+.x_xd0 .x_xdh .gp.tg_pr,
+.x_xd0 .x_xdh .gp.tg_prx { color: var(--color-faint); font-family: var(--font-sans); }
+
+.ph.t_stress .str.t_l { text-decoration: underline; }
+
+/* ── POS ────────────────────────────────────────────────────── */
+.posg, .pos, .ps {
+  font-family: var(--font-sans);
+  color:       var(--color-muted);
+  font-weight: 500;
+}
+.posg .infg             { font-family: var(--font-serif); }
+.hg .posg, .hwg .posg  { margin-right: 0.3em; }
+.gp.tg_pos              { margin-right: 0.3em; }
+
+/* Badge styles */
+.pos.x_rr, .ps.x_rr,
+.hwg > .hgSub1 .ps.x_rr,
+.lbl.x_rr, .ph.x_rr, .sn.x_rr, .gr.x_rr {
+  border:         1px solid var(--color-muted);
+  border-radius:  2px;
+  padding:        1px;
+  font-size:      70%;
+  vertical-align: 5%;
+  margin-right:   0.18em;
+  margin-top:     0.18em;
+  margin-bottom:  0.18em;
+}
+.lbl.x_rr            { margin-right: 0.4em; vertical-align: 10%; }
+.note .lbl.x_rr      { vertical-align: 5%; }
+.ph.x_rr             { padding: 2px 3px 0; margin-left: 0.2em; margin-right: 0.2em; }
+.ps.x_rr, .gr.x_rr  { margin-right: 0.3em; }
+
+.lbl.x_rrbd {
+  border:         2px solid var(--color-muted);
+  border-radius:  3px;
+  padding:        2px 4px 1px;
+  color:          var(--color-muted);
+  font-weight:    600;
+  font-size:      70%;
+  margin-right:   0.5em;
+  vertical-align: 20%;
+}
+html.apple_client-panel .lbl.x_rrbd { vertical-align: 15%; }
+
+.x_xd0 > .x_xdh.ps.x_rr   { font-size: 84%; }
+.x_xd0 > .ps.x_xdh.x_rr   { display: inline; }
+
+.msDict > .posg:first-child,
+.se2 > .posg:first-child,
+.x_xdh > .sn + .posg      { margin-right: 0.2em; }
+
+.x_xd1 > .posg.x_xdh,
+.x_xd1 > .x_xdh > .posg:first-child { font-size: 120%; }
+html.apple_client-panel .x_xd1 > .posg.x_xdh { font-size: 110%; }
+
+/* ── Sense Numbers ──────────────────────────────────────────── */
+.sn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color:       var(--color-muted);
+}
+.sn.x_rrbg {
+  background:     var(--color-muted);
+  border-radius:  2px;
+  padding:        3px 2px 1px;
+  color:          var(--color-surface);
+  font-size:      70%;
+  vertical-align: 10%;
+  margin-right:   0.5em;
+}
+
+/* ── Examples ───────────────────────────────────────────────── */
+.eg .ex            { font-weight: normal; font-style: italic; color: var(--color-muted); }
+.ex .bold          { font-weight: 600; font-style: italic; }
+.eg .ex > .italic  { font-style: normal; }
+.eg .ref           { font-weight: 200; }
+.gp.tg_df,
+.gp.tg_eg          { color: var(--color-muted); }
+.eg .ex.x_ni       { font-style: normal; font-weight: 200; }
+.eg .ex.x_ni .bold { font-style: normal; font-weight: 600; }
+
+/* Bilingual */
+.exg .ex           { font-style: normal; font-weight: 500; color: var(--color-muted); }
+.exg .ex .bold     { font-weight: normal; }
+
+/* ── Translations ───────────────────────────────────────────── */
+.trans              { font-weight: 500; }
+.trg .trans         { font-weight: normal; }
+.trg.x_xd2 > .trans,
+.trgg.x_xd2 > .trg > .trans { font-weight: 500; }
+.trg.x_xd2 > .trans .tgr,
+.trgg.x_xd2 > .trg > .trans .tgr { font-weight: normal; }
+.x_xdh.sn:first-child + .exg.x_xd2 > .trg.x_xd3 > .trans { font-weight: 500; }
+.x_xdh.sn:first-child + .exg.x_xd2 > .trg.x_xd3 > .trans .tgr { font-weight: normal; }
+.semb.x_xd2 > .trg.x_xd3 > .trans { font-weight: 500; }
+
+/* Pinyin */
+.trans.ty_pinyin,
+.trg.x_xd2 > .trans.ty_pinyin,
+.trg.x_xd2 > .trans .trans.ty_pinyin,
+.trgg.x_xd2 > .trg > .trans.ty_pinyin,
+.trgg.x_xd2 > .trg > .trans .trans.ty_pinyin {
+  font-weight: normal;
+  margin:      0 0.2em;
+  color:       var(--color-muted);
+}
+
+/* ── Labels & Grammar Markers ───────────────────────────────── */
+.lbl                { color: var(--color-muted); }
+.pronBlock .lbl     { font-weight: 500; margin-right: 0.3em; }
+
+.lbl.x_sqb {
+  background:     var(--color-muted);
+  padding:        2px 4px;
+  font-size:      80%;
+  color:          var(--color-surface);
+  font-weight:    600;
+  margin-right:   1em;
+  vertical-align: 5%;
+}
+
+.general-text.t_label,
+.general-text.t_label_block,
+.gp.t_label.tg_synList, .gp.t_label.tg_antList,
+.gp.t_label.tg_see, .gp.t_label.tg_REMISIO,
+.etym .gp.t_label, .dgg .gp.t_label {
+  font-variant:   small-caps;
+  text-transform: lowercase;
+  margin-right:   0.3em;
+  color:          var(--color-muted);
+}
+.general-text.t_label_block { display: block; }
+
+.gp.t_lbl.tg_ant,
+.gp.t_lbl.tg_syn   { font-family: var(--font-sans); color: var(--color-muted); margin-right: 0.3em; }
+.gp.t_triangle     { font-family: var(--font-sans); color: var(--color-faint); }
+
+.lg, .gg            { font-family: var(--font-sans); font-style: italic; color: var(--color-muted); font-size: 94%; }
+.lg.x_ni, .gg.x_ni, .ff.x_ni { font-style: normal; }
+.ind, .gr           { font-family: var(--font-sans); color: var(--color-muted); }
+.lev, .fld          { font-family: var(--font-sans); font-size: 90%; color: var(--color-muted); }
+.sy                 { font-family: var(--font-sans); font-style: italic; }
+
+.usageLbl           { font-weight: normal; font-size: 90%; color: var(--color-muted); }
+.hw .usageLbl       { font-size: 80%; }
+.oup_label          { font-style: italic; color: var(--color-muted); }
+.oup_label.x_ni     { font-style: normal; }
+
+.cnt                { font-weight: 200; color: var(--color-muted); }
+.cnt.x_rr {
+  border:         1px solid var(--color-muted);
+  border-radius:  2px;
+  padding:        0 0.2em;
+  font-size:      70%;
+  margin:         0 0.2em;
+}
+
+/* ── Notes & Boxes ──────────────────────────────────────────── */
+.note, .cntxt, .box {
+  display:        block;
+  border:         var(--border);
+  border-radius:  var(--radius);
+  padding:        0.7em 1em;
+  margin-top:     0.1em;
+  margin-bottom:  0.7em;
+}
+span + .note, span + .box, span + .cntxt { margin-top: 0.7em; }
+.note .lbl, .cntxt .lbl  { color: var(--color-muted); text-transform: lowercase; font-variant: small-caps; }
+.note.x_nb               { display: inline; background: none; padding: 0; margin: 0; }
+
+/* ── Sub-entries & Derived Forms ────────────────────────────── */
+.l, .subEntry .l ~ .vg .v   { font-weight: 600; }
+.drv                         { font-weight: 600; }
+.drvg .drv                   { margin-right: 0.5em; }
+.subEntry .pos               { font-size: 100%; }
+.subEntry > .l + .pr,
+.subEntry > .pr + .posg      { margin-left: 0.6em; }
+
+.idmsec .idm                 { font-weight: 600; }
+.pvb .pvsec .pvg .pv,
+.pvb .pvsec .pvg .pvv        { font-weight: 600; }
+.pvsec .gramb .semb .pgr,
+.pvsec .gramb .pgr           { font-weight: 600; color: var(--color-muted); }
+.cb .csec .cwg .cw,
+.cb .csec .cwg .cvg .cv,
+.csec .cwg .cw               { font-weight: 600; }
+
+/* ── Etymology ──────────────────────────────────────────────── */
+.etym > .lbl    { color: var(--color-muted); }
+.etym .dgg      { display: block; margin-top: 0.2em; margin-right: 1em; }
+
+/* ── Cross-references ───────────────────────────────────────── */
+.xr             { font-weight: 500; }
+.xr .gp         { font-variant: normal; }
+
+/* ── Thesaurus ──────────────────────────────────────────────── */
+.synGroup > .syn.t_core              { font-variant: small-caps; font-size: 120%; vertical-align: -1%; }
+.synGroup > .syn.t_core > .gp       { font-variant: normal; font-size: 90%; }
+.antList > .gp.ty_label.tg_antList  { font-variant: small-caps; color: var(--color-muted); font-size: 80%; }
+
+/* ── Images & Media ─────────────────────────────────────────── */
+.image          { display: block; margin-top: 0.4em; margin-left: 1em; }
+img.map         { width: 100%; margin-top: 1em; }
+img.gi          { width: 1em; height: 1em; display: inline; }
+img.image.th    { display: block; width: 96%; margin-top: 1em; }
+
+html.apple_client-panel img    { display: none; }
+html.apple_client-panel img.gi { display: inline; }
+html.apple_client-panel .lineart { display: none; }
+
+.lineart        { float: right; max-width: 33%; padding: 1em 0 0.5em 1.5em; }
+.lineart img    { width: 100%; }
+.lineart div    { display: block; text-align: center; font-weight: 600; font-size: 80%; }
+
+/* ── Definition Hierarchy (xh / xd levels) ─────────────────── */
+
+/* xh blocks */
+.entry > .x_xh0         { display: block; margin-bottom: 0.6em; }
+html.apple_client-panel .entry > .x_xh0 { margin-bottom: 0.1em; }
+
+.x_xh1                  { display: block; margin-top: 0.6em; margin-bottom: 0.4em; }
+html.apple_client-panel .x_xh1 { margin-top: 0.1em; }
+.x_xh1 + .x_xh1        { margin-top: 0.4em; margin-left: var(--indent); }
+html.apple_client-panel .x_xh1 + .x_xh1 { margin-top: 0.1em; }
+
+/* xd0 */
+.x_xd0 {
+  display:       block;
+  margin-top:    0.3em;
+  margin-bottom: 2em;
+  margin-left:   var(--indent);
+}
+html.apple_client-panel .x_xd0 { margin-top: 0.1em; margin-bottom: 0.4em; }
+
+.x_xd0 > .x_xdh { display: block; margin-left: -0.8em; margin-bottom: 0.5em; }
+html.apple_client-panel .x_xd0 > .x_xdh { font-size: 100%; margin-bottom: 0.1em; }
+
+/* xd1 */
+.x_xd1 {
+  display:       block;
+  margin-top:    0.3em;
+  margin-bottom: 0.7em;
+}
+html.apple_client-panel .x_xd1 { margin-top: 0.1em; margin-bottom: 0.3em; }
+.x_xd1.hasSn                { margin-left: var(--indent); text-indent: 0; }
+.x_xd1 > .sn,
+.x_xd1 > .x_xdh > .sn      { margin-left: -1em; }
+.x_xd1 .x_xdh .sn           { margin-right: 0.2em; }
+.x_xd1 > .sn + .x_xd2.t_first { margin-left: 1.2em; }
+.x_xd1 > .x_xdh > .sn + .x_xo0,
+.x_xd2 > .x_xdh > .sn + .x_xo0 { display: inline; }
+
+/* xd2 */
+.x_xd2          { display: block; margin-top: 0.3em; margin-bottom: 0.3em; }
+html.apple_client-panel .x_xd2 { margin-top: 0.1em; margin-bottom: 0.3em; }
+.x_xd2.hasSn    { margin-left: var(--indent); }
+.x_xd2.hasSn .sn { margin-left: -1em; margin-right: 0.2em; }
+.x_xd1.hasSn .x_xdh.sn + .x_xd2       { display: inline; margin-left: 0; }
+.x_xd1.hasSn .x_xdh.sn + .x_xd2.hasSn { display: block; margin-left: var(--indent); }
+
+/* xd3–xd6 share the same pattern */
+.x_xd3, .x_xd4, .x_xd5, .x_xd6 { display: block; margin-top: 0.2em; margin-bottom: 0.2em; }
+.x_xd3.hasSn, .x_xd4.hasSn, .x_xd5.hasSn, .x_xd6.hasSn { margin-left: var(--indent); }
+.x_xd3.hasSn .sn, .x_xd4.hasSn .sn,
+.x_xd5.hasSn .sn, .x_xd6.hasSn .sn { margin-left: -1em; }
+
+.x_xd2.hasSn .x_xdh.sn + .x_xd3,
+.x_xd3.hasSn .x_xdh.sn + .x_xd4,
+.x_xd4.hasSn .x_xdh.sn + .x_xd5,
+.x_xd5.hasSn .x_xdh.sn + .x_xd6        { display: inline; margin-left: 0; }
+.x_xd2.hasSn .x_xdh.sn + .x_xd3.hasSn,
+.x_xd3.hasSn .x_xdh.sn + .x_xd4.hasSn,
+.x_xd4.hasSn .x_xdh.sn + .x_xd5.hasSn,
+.x_xd5.hasSn .x_xdh.sn + .x_xd6.hasSn  { display: block; margin-left: var(--indent); }
+
+/* Sub-items */
+.x_xd1sub { display: block; }
+.x_xd1sub.hasSn { margin-left: var(--indent); }
+.x_xd1sub.hasSn .sn { margin-left: -1em; margin-right: 0.1em; }
+.x_xd1.hasSn .x_xdh.sn + .x_xd1sub { display: inline; margin-left: 0; }
+.x_xd1.hasSn .x_xdh.sn + .x_xd1sub.hasSn.t_first { display: block; margin-left: var(--indent); }
+
+.x_xd2sub { display: block; }
+.x_xd2sub.hasSn { margin-left: var(--indent); }
+.x_xd2sub.hasSn .sn { margin-left: -0.9em; margin-right: 0.1em; }
+.x_xd2.hasSn .x_xdh.sn + .x_xd2sub { display: inline; margin-left: 0.2em; }
+
+/* Cascading sense numbers (DE) */
+.x_xd0.cHasSn.gcHasSn { margin-left: 2em; }
+.x_xd1.cHasSn.gcHasSn { margin-left: var(--indent); }
+
+.x_xd0.cHasSn.gcHasSn .x_xd1.hasSn,
+.x_xd1.cHasSn.gcHasSn .x_xd2.hasSn  { margin-left: 0; }
+
+.x_xd0.cHasSn.gcHasSn .x_xd1.hasSn.cHasSn,
+.x_xd1.cHasSn.gcHasSn .x_xd2.hasSn.cHasSn { margin-left: 1.2em; }
+
+.x_xd0.cHasSn.gcHasSn .x_xd1.hasSn.cHasSn > .sn,
+.x_xd1.cHasSn.gcHasSn .x_xd2.hasSn.cHasSn > .sn { margin-left: -2.2em; margin-right: 2.3em; }
+
+.x_xd0.cHasSn.gcHasSn .x_xd2.hasSn .sn,
+.x_xd1.cHasSn.gcHasSn .x_xd3.hasSn .sn { margin-left: -0.8em; }
+
+.x_xd0.cHasSn.gcHasSn .x_xd1.hasSn .x_xd2.hasSn .sn,
+.x_xd1.cHasSn.gcHasSn .x_xd2.hasSn .x_xd3.hasSn .sn { margin-left: -1.2em; margin-right: 0.1em; }
+
+.x_xd0.cHasSn.gcHasSn .x_xd1.hasSn > .sn + .x_xd2.hasSn > .sn,
+.x_xd1.cHasSn.gcHasSn .x_xd2.hasSn > .sn + .x_xd3.hasSn > .sn { margin-left: -3.6em; margin-right: 0.2em; }
+
+.x_xd0.cHasSn.gcHasSn .x_xd1.hasSn .x_xdh.sn + .x_xd2,
+.x_xd1.cHasSn.gcHasSn .x_xd2.hasSn .x_xdh.sn + .x_xd3  { display: inline; margin-left: 0; }
+
+.x_xd0.cHasSn.gcHasSn .x_xd1.hasSn > .x_xdh.sn + .x_xd2.hasSn,
+.x_xd1.cHasSn.gcHasSn .x_xd2.hasSn > .x_xdh.sn + .x_xd3.hasSn { display: inline; margin-left: 1.4em; }
+
+.x_xd1.hasSn .x_xdh.sn + .x_xd2.hasSn { display: block; margin-left: var(--indent); }
+
+/* ── Orientation Blocks (x_xo levels) ──────────────────────── */
+
+.x_xo0 { display: block; margin-top: var(--gap-md); margin-bottom: var(--gap-md); }
+html.apple_client-panel .x_xo0 { margin-top: var(--gap-xs); margin-bottom: 0.2em; }
+.entry > .x_xo0 { margin-top: 1em; margin-bottom: 1em; }
+html.apple_client-panel .entry > .x_xo0 { margin-top: 0.3em; margin-bottom: 0.3em; }
+
+.x_xd0 > .x_xo0 { margin-left: -1em; }
+.x_xo0.note      { margin-top: var(--gap-xl); margin-bottom: var(--gap-xl); }
+
+.x_xo0 > .x_xoLblBlk {
+  display:        block;
+  font-variant:   small-caps;
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+  padding-bottom: 0.3em;
+  border-bottom:  var(--border);
+  color:          var(--color-muted);
+  margin-top:     2em;
+  margin-bottom:  var(--gap-md);
+}
+html.apple_client-panel .x_xo0 > .x_xoLblBlk { margin-top: 1em; }
+
+.xrgBlock.x_xoLblBlkTop,
+.x_xo0.x_xoLblBlkTop   { margin-top: 3em; border-top: var(--border); margin-bottom: 1em; }
+html.apple_client-panel .xrgBlock.x_xoLblBlkTop,
+html.apple_client-panel .x_xo0.x_xoLblBlkTop { margin-top: 1em; }
+.xrgBlock.x_xoLblBlkTop > .label,
+.x_xo0.x_xoLblBlkTop > .label { display: block; margin-top: 1em; }
+html.apple_client-panel .xrgBlock.x_xoLblBlkTop > .label,
+html.apple_client-panel .x_xo0.x_xoLblBlkTop > .label { margin-top: 0.5em; }
+
+.xrgBlock .xrgs     { display: block; margin-left: 2em; }
+.xrgBlock .xrgs .xrg { display: block; }
+
+.x_xo1 { display: block; margin-left: var(--indent); margin-top: var(--gap-md); margin-bottom: var(--gap-md); }
+html.apple_client-panel .x_xo1 { margin-bottom: 0.3em; }
+.x_xd1 .x_xo1      { margin-left: 0; }
+
+/* IT */
+.x_xd0 > .x_xo1         { margin-left: 0; }
+.x_xd0 > .x_xo1.hasSn   { padding-left: var(--indent); }
+.x_xd0 > .x_xo1.hasSn .sn { margin-left: -0.9em; }
+
+.x_xo2 { display: block; margin-left: var(--indent); margin-top: 0.4em; margin-bottom: 0.4em; }
+.x_xo2.hasSn { margin-left: 2em; }
+.x_xo2.hasSn > .sn,
+.x_xo2.hasSn > .x_xdh > .sn,
+.x_xo2.hasSn > .x_xoh > .sn { margin-left: -1em; margin-right: 0.2em; }
+
+.x_xo2sub       { display: block; }
+.x_xo2sub.hasSn { margin-left: var(--indent); }
+.x_xo2sub.hasSn .sn { margin-left: -1em; margin-right: 0.1em; }
+.x_xo2.hasSn .x_xoh.sn + .x_xo2sub { display: inline; margin-left: 0.1em; }
+
+.x_xo2.hasSn .x_xdh.sn + .x_xo3,
+.x_xo2.hasSn .x_xdh.sn + .x_xo3 > .x_xo4.trg:first-child { display: inline; margin-left: 0; }
+
+.x_xo3, .x_xo4, .x_xo5, .x_xo6 { display: block; margin-top: 0.3em; margin-bottom: 0.3em; }
+
+.x_xo3.hasSn { margin-left: var(--indent); }
+.x_xo3.hasSn > .sn,
+.x_xo3.hasSn > .x_xoh > .sn,
+.x_xo3.hasSn > .x_xdh > .sn { margin-left: -1em; margin-right: 0.2em; }
+
+.x_xo4.hasSn, .x_xo5.hasSn, .x_xo6.hasSn { margin-left: var(--indent); }
+.x_xo4.hasSn .sn,
+.x_xo5.hasSn .sn,
+.x_xo6.hasSn .sn { margin-left: -1em; margin-right: 0.1em; }
+
+.x_xo4.hasSn > .x_xoh.sn + .x_xo5       { display: inline; margin-left: 0; }
+
+.x_xo3.hasSn .x_xdh.sn + .x_xo4,
+.x_xo2.hasSn .x_xoh.sn + .x_xo3         { display: inline; margin-left: 0; }
+.x_xo3.hasSn .x_xdh.sn + .x_xo4.hasSn,
+.x_xo2.hasSn .x_xoh.sn + .x_xo3.hasSn,
+.x_xo3.hasSn .x_xoh.sn + .x_xo4.hasSn   { display: block; margin-left: var(--indent); }
+
+.x_xd1sub + .x_xo0 { margin-top: 0.8em; }
+
+/* ES */
+.x_xd2.msDict > .synGroup { display: block; }
+
+/* ── Features ───────────────────────────────────────────────── */
+.feature { display: block; margin-top: 2.5em; }
+html.apple_client-panel .feature { margin-top: 1em; }
+
+.feature-title {
+  display:        block;
+  color:          var(--color-muted);
+  text-transform: lowercase;
+  font-variant:   small-caps;
+  font-weight:    500;
+  font-size:      90%;
+  line-height:    23px;
+  padding:        1px 1em 0;
+  margin-top:     2em;
+  border:         var(--border);
+  border-bottom:  none;
+  border-radius:  var(--radius) var(--radius) 0 0;
+}
+html.apple_client-panel .feature-title { margin-top: 1em; }
+
+.feature-body {
+  display:       block;
+  padding:       5px 1em 9px;
+  border:        var(--border);
+  border-top:    none;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.feature-body table { table-layout: fixed; width: 100%; margin: 0; border: none; }
+
+.feature-caption { display: block; color: var(--color-muted); font-size: 90%; padding: 3px 3px 9px; }
+
+.feature .list            { display: block; }
+.feature .list + .list    { margin-top: 0.25em; }
+.para, .list .item, .np   { display: block; }
+span + .para, .list span + .item, span + .np { margin-top: 0.25em; }
+
+.feature.t_wordLinks .list .item.t_related { font-weight: 600; font-variant: small-caps; }
+.feature.t_wordLinks .list .item.t_related + .item.t_description { margin-left: 0.5em; }
+
+.feature.t_rightWord .heading,
+.feature.t_usage .heading,
+.feature.t_wordNote .heading { font-weight: 500; }
+.feature.t_wordNote .heading  { display: block; }
+
+.ll      { font-weight: 500; }
+.ll .gp  { font-weight: normal; }
+
+.feature.t_toolkit > .feature-body > table tbody tr td.lemma { font-weight: 600; font-size: 110%; }
+.feature.t_quotes .para .eg .ref { display: block; }
+
+.feature.t_encyclopaedic {
+  display:        block;
+  margin:         1em 1em 2em;
+  border:         var(--border);
+  border-radius:  var(--radius);
+  padding:        0.7em 1em;
+}
+
+/* ── Panel Compact Mode ─────────────────────────────────────── */
+html.apple_client-panel .entry > .x_xh0:first-child,
+html.apple_client-panel .x_xd0:not(.hasSn):first-child,
+html.apple_client-panel .x_xd0:not(.hasSn):first-child > .x_xdh,
+html.apple_client-panel .x_xh0 + .x_xd0:not(.hasSn),
+html.apple_client-panel .x_xh0 + .x_xd0:not(.hasSn) > .x_xdh { display: inline; }
+
+html.apple_client-panel .x_xd0:not(.hasSn):first-child > .x_xd1,
+html.apple_client-panel .x_xd0:not(.hasSn):first-child > .x_xd0,
+html.apple_client-panel .x_xh0 + .x_xd0:not(.hasSn) > .x_xd1,
+html.apple_client-panel .x_xh0 + .x_xd0:not(.hasSn) > .x_xd0 { margin-left: var(--indent); }
+
+html.apple_client-panel .x_xd0:not(.hasSn):first-child > .x_xd1.hasSn,
+html.apple_client-panel .x_xd0:not(.hasSn):first-child > .x_xd0.hasSn,
+html.apple_client-panel .x_xh0 + .x_xd0:not(.hasSn) > .x_xd1.hasSn,
+html.apple_client-panel .x_xh0 + .x_xd0:not(.hasSn) > .x_xd0.hasSn { margin-left: 2em; }
+
+html.apple_client-panel .x_xd1 > .posg.x_xdh { font-size: 110%; }
+
+/* ── Utility & Typography ───────────────────────────────────── */
+.bold      { font-weight: 600; }
+.italic    { font-style: italic; }
+.underline { text-decoration: underline; }
+.r         { font-weight: normal; font-style: normal; }
+.sc        { font-variant: small-caps; }
+.bi        { font-weight: 500; font-style: italic; }
+
+.sup, .su, .nu { vertical-align: super; font-size: 70%; }
+.sub, .in, .dn,
+.subEnt        { vertical-align: sub;   font-size: 70%; }
+.sui           { vertical-align: super; font-size: 70%; font-style: italic; }
+.ini           { vertical-align: sub;   font-size: 70%; font-style: italic; }
+
+.Name          { font-style: italic; }
+.altName       { font-weight: 600; }
+.sp            { font-weight: 600; }
+.sp .gp        { font-weight: normal; }
+.rel           { font-weight: 600; }
+.fl            { font-weight: 600; }
+.ff            { font-style: italic; font-weight: 600; }
+.xu            { font-weight: 600; }
+.finf          { font-style: italic; }
+.co            { font-style: italic; }
+.co.x_ni       { font-style: normal; }
+.com           { font-weight: normal; }
+.con           { font-weight: 600; color: var(--color-muted); }
+.date          { font-weight: normal; }
+.hwtrans       { font-weight: normal; }
+
+.reg, .ge, .sj,
+.semb .reg, .semb .ge, .semb .sj,
+.exg .ex .reg, .exg .ex .ge, .exg .ex .sj { font-weight: normal; color: var(--color-muted); }
+.hwg .reg      { font-size: 170%; color: var(--color-faint); }
+html.apple_client-panel .hwg .reg { font-size: 120%; }
+.hwg .hvg .reg,
+.hwg .pr .reg,
+.hwg .prx .reg { font-size: 100%; color: var(--color-faint); }
+.hwg .gr       { font-weight: 300; }
+.hwg .lev      { font-size: 130%; }
+html.apple_client-panel .hwg .lev { font-size: 100%; }
+
+/* Stress underline */
+.hg .hw .sy_underline, .hg .vg .v .sy_underline,
+.sy_underline, .pr .ph .str { text-decoration: underline; }
+
+/* Inline separators */
+.hsb::before { content: '\2022'; font-size: 80%; vertical-align: 3%; }
+.wbb::before { content: '\a0\7c\a0'; font-size: 70%; vertical-align: 5%; color: var(--color-muted); margin: 0 -0.15em; }
+
+/* Display helpers */
+.eg.x_blk, .xrg.x_blk, .lbl.x_blk { display: block; }
+
+/* ── Hidden structural elements ─────────────────────────────── */
+.x_xd1 > .x_xdh > .gp.tg_se1,
+.construction, .cdf,
+.domClass, .semClass, .encClass,
+.morphSet, .meta { display: none; }

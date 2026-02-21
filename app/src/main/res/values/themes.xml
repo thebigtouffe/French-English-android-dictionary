@@ -1,0 +1,12 @@
+<resources>
+    <style name="Theme.FrenchEnglish" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Blue Shades Theme -->
+        <item name="colorPrimary">#3F51B5</item>        <!-- Indigo 700 -->
+        <item name="colorPrimaryVariant">#303F9F</item> <!-- Indigo 900 -->
+        <item name="colorOnPrimary">#FFFFFF</item>      <!-- White (for contrast) -->
+
+        <item name="colorSecondary">#2979FF</item>       <!-- Blue 500 -->
+        <item name="colorSecondaryVariant">#0060DF</item> <!-- Blue 700 -->
+        <item name="colorOnSecondary">#FFFFFF</item>     <!-- White (for contrast) -->
+    </style>
+</resources>
