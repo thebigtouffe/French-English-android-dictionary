@@ -12,6 +12,9 @@
         android:layout_height="96dp"
         android:paddingTop="36dp"
         android:background="?attr/colorPrimary"
+        app:titleTextColor="#FFFFFF"
+        app:subtitleTextColor="#FFFFFF"
+        app:navigationIconTint="#FFFFFF"
         app:navigationIcon="@android:drawable/ic_menu_revert" />
 
     <WebView

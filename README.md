@@ -5,7 +5,15 @@ Features:
 - History
 - Favorite
 
+Dictionary is converted to a sqlite database.
+
 Built partially by LLM.
+
+## Screenshots 
+
+![Entry](screenshots/entry.png)
+![Search](screenshots/search.png)
+![History](screenshots/history.png)
 
 ## Build dictionary
 

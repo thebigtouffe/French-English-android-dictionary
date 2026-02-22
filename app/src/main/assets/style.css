@@ -31,11 +31,11 @@
 /* ── Base ───────────────────────────────────────────────────── */
 body {
   font-family:  var(--font-serif);
-  font-size:    12pt;
+  font-size:    14pt;
   color:        var(--color-text);
   line-height:  1.6;
   margin:       1em;
-  padding:      0.5em 1em 1.5em;
+
 }
 html.apple_client-panel body {
   margin:  0;
@@ -96,6 +96,8 @@ html.apple_client-panel .hwg .frmg .gp.tg_frmg {
   font-size:   var(--hw-size-panel);
   line-height: 130%;
 }
+
+.hw {display: none;}
 
 .hvg > .hm              { font-size: 59%; }
 html.apple_client-panel .hvg > .hm { font-size: 80%; }
@@ -172,7 +174,7 @@ html.apple_client-panel .hwg .infg    { font-size: 100%; }
   display:      inline-block;
   font-size:    var(--pr-size);
   line-height:  130%;
-  margin-left:  0.4em;
+  margin-left:  0.0em;
   margin-right: 0.4em;
 }
 .prx + .prx                     { margin-left: 0; }
