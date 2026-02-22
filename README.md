@@ -11,9 +11,14 @@ Built partially by LLM.
 
 ## Screenshots 
 
-![Entry](screenshots/entry.png)
-![Search](screenshots/search.png)
-![History](screenshots/history.png)
+<img src="screenshots/entry.png" alt="Entry Screen" width="400"/>
+*Dictionary entry*
+
+<img src="screenshots/search.png" alt="Search Screen" width="400"/>
+*Search*
+
+<img src="screenshots/history.png" alt="History Screen" width="400"/>
+*History: Displays the user's activity history.*
 
 ## Build dictionary
 
